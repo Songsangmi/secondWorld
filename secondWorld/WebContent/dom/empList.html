@@ -45,18 +45,16 @@
 	<script src="emp.js"></script>
 	<script>
 		document.getElementById('addBtn').onclick = function () {
-			// 사용자 입력값 가져와서...
-			// ajax() : 서버로 데이터 전송.
-			// 응답결과: 화면에 정보추가.
+			// ajax() : 서버로 데이터 전송
 			let eId = document.getElementById('empId').value;
 			let name = document.getElementById('name').value;
 			let email = document.getElementById('email').value;
 			let hire = document.getElementById('hire').value;
 			let job = document.getElementById('job').value;
 
-			// 등록아이디가 존재하는지 여부 체크
-			// 아이디값을 가지고 서버에 값이 존재여부 체크.
-			// ajax > 서블릿 > EmpDAO: 한건 조회해서 메소드.
+			// 등록아이디 존재 여부 체크
+			// 아이디 값-> 서버 값 존재여부 체크.
+			// ajax > 서블릿 > EmpDAO: 한건 조회
 			// 존재하면 true, 존지하지 않으면 false;
 			let xhttp = new XMLHttpRequest();
 			xhttp.onload = function () {
@@ -66,7 +64,6 @@
 					window.alert('이미 존재하는 아이디입니다.');
 					return;
 				}
-				// 정상적인 등록....
 				console.log('1111111');
 
 				console.log('2222222');
@@ -78,7 +75,7 @@
 				let param = 'id=' + eId + '&name=' + name + '&email=' + //
 					email + '&hire=' + hire + '&job=' + job;
 
-				// 등록처리하는 ajax 호출.
+				// 등록처리 ajax 호출.
 				let xhtp = new XMLHttpRequest();
 				xhtp.onload = function () {
 					console.log('333333');
@@ -92,9 +89,6 @@
 			}
 			xhttp.open('get', '../CheckEmpServlet?checkId=' + eId);
 			xhttp.send();
-			// 
-
-
 		}
 	</script>
 </body>
